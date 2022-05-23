@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,7 +11,17 @@ import 'package:page_transition/page_transition.dart';
 
 import 'view/Screens/CourseExam/CourseExam.dart';
 
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient CreateHttpClient(SecurityContext context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
+}
+
+
 void main() {
+  HttpOverrides.global=MyHttpOverrides();
   runApp(const MyApp());
 }
 
