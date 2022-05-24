@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathonapp/view/Screens/CourseDetails/CourseDetails.dart';
 import 'package:hackathonapp/view/widgets/CoursesList.dart';
 import 'package:hackathonapp/view/widgets/TextWidget.dart';
 
@@ -53,7 +54,7 @@ class _MyCoursesState extends State<MyCourses> {
                         children: [
                           SizedBox(
                             width: 200,
-                            child: TextWidget(text: 'LOL', color: black, fontsize: subTitleText),
+                            child: TextWidget(text: 'Learn UI/UX for Beginners', color: black, fontsize: subTitleText),
                           ),
                           const SizedBox(
                             height: 5.0,
@@ -61,7 +62,7 @@ class _MyCoursesState extends State<MyCourses> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              TextWidget(text: 'Ahmed ABaza', color: lightGray, fontsize: 12),
+                              TextWidget(text: 'Ahmed ABaza', color: subTitleGray, fontsize: 15),
 
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -72,7 +73,8 @@ class _MyCoursesState extends State<MyCourses> {
                                       color: Color(0xff979797), shape: BoxShape.circle),
                                 ),
                               ),
-                              TextWidget(text: '15 Hours', color: lightGray, fontsize: 15),
+                              TextWidget(text: '15 Hours', color: subTitleGray, fontsize: 15),
+
 
                             ],
                           )
@@ -80,11 +82,17 @@ class _MyCoursesState extends State<MyCourses> {
                       ),
                     ),
                     Container(
-                      color: Colors.grey,
+                      color: lightGray,
                       width: 30,
                       height: 30,
                       child: IconButton(
-                          onPressed: () {  }, icon: Icon(Icons.arrow_forward,size:20,color: Colors.black,)),
+                          onPressed: ()
+                          {
+                            Navigator.push(context, MaterialPageRoute (
+                              builder: (BuildContext context) => const CourseDetails(),
+                            ));
+                          },
+                          icon: Icon(Icons.arrow_forward,size:20,color: Colors.black,)),
                     )
                   ],
                 ),

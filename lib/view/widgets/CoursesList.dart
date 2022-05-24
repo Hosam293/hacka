@@ -20,24 +20,26 @@ class _CoursesListState extends State<CoursesList> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: const DecorationImage(
-                  image: AssetImage('assets/images/unsplash.png'),
+                  image: AssetImage('assets/images/unsplash.jpg'),
                   fit: BoxFit.cover),
             )),
         const SizedBox(
           width: 10,
         ),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 200,
-              child: TextWidget(text: 'LOL', color: black, fontsize: subTitleText),
+              width: 180,
+              child: TextWidget(text: 'Learn UI/UX for Beginners', color: black, fontsize: subTitleText),
             ),
             const SizedBox(
               height: 5.0,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                TextWidget(text: 'Ahmed ABaza', color: lightGray, fontsize: subTitleText),
+                TextWidget(text: 'Ahmed ABaza', color: subTitleGray, fontsize: 15),
 
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -48,7 +50,7 @@ class _CoursesListState extends State<CoursesList> {
                         color: Color(0xff979797), shape: BoxShape.circle),
                   ),
                 ),
-                TextWidget(text: '15 Hours', color: lightGray, fontsize: subTitleText),
+                TextWidget(text: '15 Hours', color: subTitleGray, fontsize: 15),
 
               ],
             )

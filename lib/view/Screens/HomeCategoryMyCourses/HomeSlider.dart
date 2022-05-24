@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathonapp/Constant.dart';
 import 'package:hackathonapp/services/Apis.dart';
+import 'package:hackathonapp/view/Screens/CourseDetails/CourseDetails.dart';
 import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/Categories.dart';
 import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/NewCourses.dart';
 import 'package:hackathonapp/view/widgets/CoursesCard.dart';
@@ -89,17 +90,23 @@ class _HomeSliderState extends State<HomeSlider> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 5.0),
-                              child: Container(
-                                  height: 50,
-                                  width: 50,
-                                  decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: orange),
-                                  child: const Icon(
-                                    Icons.arrow_forward_outlined,
-                                    size: heading,
-                                    color: background,
-                                  )),
+                              child: GestureDetector(
+                                onTap: ()
+                                {
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const CourseDetails()));
+                                },
+                                child: Container(
+                                    height: 50,
+                                    width: 50,
+                                    decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: orange),
+                                    child: const Icon(
+                                      Icons.arrow_forward_outlined,
+                                      size: heading,
+                                      color: background,
+                                    )),
+                              ),
                             )
                           ],
                         )
@@ -129,22 +136,18 @@ class _HomeSliderState extends State<HomeSlider> {
                       ))
                 ],
               ),
-              FutureBuilder(builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot)
-              {
-                return Container(
-                  height: 140,
-                  child: ListView.separated(
-                    separatorBuilder: (BuildContext context, int index) =>
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    itemBuilder: (BuildContext context, int index) => CateCard(catImages:catImages[index] ,catNames: catNames[index]),
-                    itemCount: catImages.length,
-                    scrollDirection: Axis.horizontal,
+              Container(
+                height: 140,
+                child: ListView.separated(
+                  separatorBuilder: (BuildContext context, int index) =>
+                  const SizedBox(
+                    width: 30,
                   ),
-                );
-              },
-              future: Apis.getAllCat()),
+                  itemBuilder: (BuildContext context, int index) => CateCard(catImages:catImages[index] ,catNames: catNames[index]),
+                  itemCount: catImages.length,
+                  scrollDirection: Axis.horizontal,
+                ),
+              ),
               const SizedBox(
                 height: 10.0,
               ),
@@ -167,8 +170,15 @@ class _HomeSliderState extends State<HomeSlider> {
               SizedBox(
                 height: 400,
                 child: ListView.separated(
-                  itemBuilder: (BuildContext context, int index) => CourseCard(courseImages: courseImages[index], courseNames: courseNames[index
-                  ]),
+                  itemBuilder: (BuildContext context, int index) => GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute (
+                        builder: (BuildContext context) => const CourseDetails(),
+                      ));
+                    },
+                    child: CourseCard(courseImages: courseImages[index], courseNames: courseNames[index
+                    ]),
+                  ),
                   itemCount: courseNames.length,
                   separatorBuilder: (BuildContext context, int index) =>
                       const SizedBox(

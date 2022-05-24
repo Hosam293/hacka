@@ -30,7 +30,7 @@ final List<String> courseNames = [
   'Learn UI/UX for Beginners',
 ];
 
-const double subText=15;
+  const double subText=15;
 const double subTitleText=20;
 const double titel=15;
 const double paragraphFont=12;

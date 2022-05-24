@@ -1,8 +1,8 @@
 class CatFetch
 {
-  var category_name;
+  String id;
+  String category_name;
+  String image_url;
+  CatFetch({required this.category_name, required this.image_url, required this.id});
 
-  CatFetch({this.category_name, this.image_url});
-
-  var image_url;
 }

@@ -18,17 +18,19 @@ class _OnboardWidState extends State<OnboardWid> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            child: Image.asset(
-              "${widget.introImage}",
-              fit: BoxFit.cover,
-              // height: double.infinity,
-              // width: double.infinity,
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
+        Container(
+        height: 270,
+        width: 300,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image:  DecorationImage(
+              image: AssetImage(
+                widget.introImage,
+              ),
+              fit: BoxFit.cover),
+        ),
+      ),
+
           Text(
             "Learn a lot of courses in Orange Education",
             style:TextStyle(
@@ -39,7 +41,7 @@ class _OnboardWidState extends State<OnboardWid> {
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           Text(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",

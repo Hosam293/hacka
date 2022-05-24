@@ -18,9 +18,19 @@ class _ProfileState extends State<Profile> {
         padding: EdgeInsets.all(15),
         child: Column(
           children: [
-            Image.asset(
-              'assets/images/Ellipse 10.png',
-              fit: BoxFit.cover,
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundColor: orange,
+                ),
+                Image.asset(
+                  'assets/images/Ellipse 10.png',
+                  fit: BoxFit.cover,
+                ),
+
+              ],
             ),
             SizedBox(
               height: 10,
@@ -37,8 +47,8 @@ class _ProfileState extends State<Profile> {
                     borderRadius: BorderRadius.circular(15)),
                 child: TextWidget(
                     text: 'Ahmedabaza@gmail.com',
-                    color: disable,
-                    fontsize: 20)),
+                    color: lightGray,
+                    fontsize: 17)),
             SizedBox(
               height: 10,
             ),
@@ -85,8 +95,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         TextWidget(
                             text: 'Achieved April 21 2022',
-                            color: lightGray,
-                            fontsize: 12)
+                          color: subTitleGray, fontsize: 15)
                       ],
                     )
                   ],

@@ -74,14 +74,14 @@ class _NavHomeState extends State<NavHome> {
             )
           ],
         ):
-        TextWidget(color: black, text: title[currentIndex], fontsize: 20,),
+        TextWidget(color: (title[currentIndex] == 'MyCourses')? Colors.orange:Colors.black , text: title[currentIndex], fontsize: 30,),
         actions: [
           (title[currentIndex] == 'Profile')
               ? IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.logout_outlined,
-                color: black,
+                color: orange,
               ))
               : IconButton(
               onPressed: () {},

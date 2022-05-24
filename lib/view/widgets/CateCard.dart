@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/WebDev.dart';
 
 import '../Screens/HomeCategoryMyCourses/Categories.dart';
 
@@ -18,7 +19,7 @@ class _CateCardState extends State<CateCard> {
       onTap: ()
       {
         Navigator.push(context, MaterialPageRoute (
-          builder: (BuildContext context) => const Categories(),
+          builder: (BuildContext context) => const WebDev(),
         ));
       },
       child: Container(
@@ -29,6 +30,7 @@ class _CateCardState extends State<CateCard> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0)),
               child: Container(
+                alignment: Alignment.center,
                 height: 80,
                 width: 80,
                 decoration: BoxDecoration(
