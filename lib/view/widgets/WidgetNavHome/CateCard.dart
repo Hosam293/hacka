@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/WebDev.dart';
 
-import '../Screens/HomeCategoryMyCourses/Categories.dart';
+import '../../Screens/HomeCategoryMyCourses/Categories.dart';
 
 class CateCard extends StatefulWidget {
   String catImages;
@@ -35,7 +35,7 @@ class _CateCardState extends State<CateCard> {
                 width: 80,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
+                      image: NetworkImage(
                         '${widget.catImages}',
                       ),
                     )),

@@ -9,7 +9,7 @@ import 'package:hackathonapp/services/ExamModel.dart';
 import 'package:hackathonapp/view/Screens/CourseExam/ScoreScreen.dart';
 import 'package:hackathonapp/view/widgets/TextWidget.dart';
 
-import '../../widgets/ExamBody.dart';
+import '../../widgets/CourseDetailsWidgets/ExamBody.dart';
 
 
 class ExamScreen extends StatefulWidget {

@@ -41,7 +41,9 @@ dependencies:
   status_change:
   circular_countdown_timer:
   flutter_svg:
-  get: 
+  get:
+  flutter_riverpod: ^0.13.0-nullsaftey.1
+#  sms_otp_auto_verify:
 
 
 dev_dependencies:

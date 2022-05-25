@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathonapp/Constant.dart';
-import 'package:hackathonapp/view/widgets/BackIcon.dart';
-import 'package:hackathonapp/view/widgets/CateCard.dart';
+import 'package:hackathonapp/view/widgets/WidgetNavHome/BackIcon.dart';
+import 'package:hackathonapp/view/widgets/WidgetNavHome/CateCard.dart';
 import 'package:hackathonapp/view/widgets/TextWidget.dart';
 
 class Categories extends StatefulWidget {

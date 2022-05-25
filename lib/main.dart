@@ -2,16 +2,15 @@ import 'dart:io';
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/all.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hackathonapp/view/Screens/CourseExam/CourseExam.dart';
-import 'package:hackathonapp/view/Screens/CourseExam/ExamScreen.dart';
-import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/NavHome.dart';
-import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/LoginScreen.dart';
+import 'package:hackathonapp/view/Screens/CourseDetails/CourseDetails.dart';
+import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/ForgetPassScreen.dart';
 import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/Onboard.dart';
-import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/SignUp.dart';
-import 'package:hackathonapp/view/widgets/ExamBody.dart';
 import 'package:page_transition/page_transition.dart';
+
+import 'view/Screens/HomeCategoryMyCourses/NavHome.dart';
 
 
 
@@ -27,8 +26,7 @@ class MyHttpOverrides extends HttpOverrides{
 
 void main() {
   HttpOverrides.global=MyHttpOverrides();
-  runApp(const MyApp());
-}
+  runApp(const ProviderScope(child: MyApp()));}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -53,7 +51,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        nextScreen:   OnBoard(),
+        nextScreen:   NavHome(),
         splashIconSize: double.infinity,
         splashTransition: SplashTransition.fadeTransition,
         duration: 3000,

@@ -48,3 +48,4 @@ const subTitle=Color(0xffFF893B);
 const subTitleGray=Color(0xff9D9D9D);
 const cardColor=Color(0xffFBFBFB);
 const orange=Color(0xffFF6600);
+const formColor=Color(0xffd0d0d0);

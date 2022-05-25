@@ -51,7 +51,7 @@ class _SignUpState extends State<SignUp> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     FormRegester(formKey: formKey),

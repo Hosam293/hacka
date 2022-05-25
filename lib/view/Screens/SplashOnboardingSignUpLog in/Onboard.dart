@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackathonapp/Constant.dart';
 import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/NavHome.dart';
+import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/LoginScreen.dart';
 import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/SignUp.dart';
 import 'package:hackathonapp/view/widgets/DefaultButton.dart';
 import 'package:hackathonapp/view/widgets/splash/OnboardWid.dart';
@@ -58,7 +59,7 @@ class _OnBoardState extends State<OnBoard> {
                   Expanded(
                     child: DefaultButton(
                       buttName: "Join now ",
-                      colorName: Colors.black,
+                      colorName: background,
                       onPressed: ()
                       {
                         // Navigator.pushAndRemoveUntil(context, MaterialPageRoute (
@@ -69,6 +70,7 @@ class _OnBoardState extends State<OnBoard> {
                             MaterialPageRoute<void>(builder: (BuildContext context) => const SignUp()),
                             ModalRoute.withName('/'),);                      },
                       buttwid: 15,
+                      buttonColor: orange,
                     ),
                   ),
                   const SizedBox(
@@ -78,8 +80,14 @@ class _OnBoardState extends State<OnBoard> {
                     child: DefaultButton(
                       buttName: 'Log in ',
                       colorName: orange,
-                      buttonColor: Colors.black,
-                      onPressed: () {},
+                      buttonColor: background,
+                      onPressed: ()
+                      {
+                        Navigator.pushAndRemoveUntil<void>(
+                          context,
+                          MaterialPageRoute<void>(builder: (BuildContext context) => const LoginScreen()),
+                          ModalRoute.withName('/'),);
+                      },
                     ),
                   ),
                 ],

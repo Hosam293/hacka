@@ -3,12 +3,12 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:hackathonapp/view/widgets/CourseDetailsWidgets/questionCard.dart';
 import 'package:hackathonapp/view/widgets/DefaultButton.dart';
-import 'package:hackathonapp/view/widgets/questionCard.dart';
 
 
-import '../../Constant.dart';
-import '../../services/ExamModel.dart';
+import '../../../Constant.dart';
+import '../../../services/ExamModel.dart';
 class ExamBody extends StatelessWidget {
 
   final int _duration = 50;

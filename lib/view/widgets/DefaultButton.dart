@@ -8,6 +8,7 @@ class DefaultButton extends StatefulWidget {
   Color colorName;
   double buttwid;
   VoidCallback onPressed;
+  BoxBorder? border;
   DefaultButton({required this.buttName, this.buttonColor=orange, required this.colorName, this.buttwid=double.infinity,required this.onPressed});
   @override
   State<DefaultButton> createState() => _DefaultButtonState();
@@ -26,7 +27,7 @@ class _DefaultButtonState extends State<DefaultButton> {
       child: MaterialButton(
         onPressed: widget.onPressed
         ,
-        child: TextWidget(color: widget.colorName,fontsize:smallButton ,text:'${widget.buttName}' ,),
+        child: TextWidget(color: widget.colorName,fontsize:largeButton ,text:'${widget.buttName}' ,),
         color: widget.buttonColor,
         height: 50.0,
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/LoginScreen.dart';
 import 'package:hackathonapp/view/widgets/TextWidget.dart';
 
 import '../../../Constant.dart';
@@ -42,10 +43,10 @@ class _NavHomeState extends State<NavHome> {
               decoration: BoxDecoration(
                 color: Color(0xffFF6600),
               ),
-              child: Text(
+              child: const Text(
                 'Orange',
                 style: TextStyle(
-                    color: Colors.white
+                    color: background
                 ),
               ),
             ),
@@ -78,7 +79,12 @@ class _NavHomeState extends State<NavHome> {
         actions: [
           (title[currentIndex] == 'Profile')
               ? IconButton(
-              onPressed: () {},
+              onPressed: ()
+              {
+                Navigator.push(context, MaterialPageRoute (
+                  builder: (BuildContext context) => const LoginScreen(),
+                ),);
+              },
               icon: const Icon(
                 Icons.logout_outlined,
                 color: orange,

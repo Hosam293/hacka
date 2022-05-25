@@ -1,15 +1,15 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hackathonapp/Constant.dart';
 import 'package:hackathonapp/services/Apis.dart';
 import 'package:hackathonapp/view/Screens/CourseDetails/CourseDetails.dart';
 import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/Categories.dart';
 import 'package:hackathonapp/view/Screens/HomeCategoryMyCourses/NewCourses.dart';
-import 'package:hackathonapp/view/widgets/CoursesCard.dart';
+import 'package:hackathonapp/view/widgets/WidgetNavHome/CoursesCard.dart';
 import 'package:hackathonapp/view/widgets/TextWidButton.dart';
 import 'package:hackathonapp/view/widgets/TextWidget.dart';
 
-import '../../widgets/CateCard.dart';
+import '../../widgets/WidgetNavHome/CateCard.dart';
 
 class HomeSlider extends StatefulWidget {
   const HomeSlider({Key? key}) : super(key: key);
@@ -39,7 +39,9 @@ class _HomeSliderState extends State<HomeSlider> {
                     padding: const EdgeInsets.all(15.0),
                     child: Column(
                       children: [
-                        TextWidget(text: 'Enter the code to get your course', color: background, fontsize: subTitleText),
+                        TextWidget(text: 'Enter the code to get your course',
+                            color: background,
+                            fontsize: subTitleText),
 
 
                         const SizedBox(
@@ -60,28 +62,30 @@ class _HomeSliderState extends State<HomeSlider> {
                                       color: subTitleGray,
                                       fontSize: subText,
                                       fontWeight: FontWeight.w600),
-                                  decoration:  InputDecoration(
-                                    hintText: "Enter Code",
-                                    hintStyle: const TextStyle(
-                                      color: Color(0xffd0d0d0),
-                                    ),
+                                  decoration: InputDecoration(
+                                      hintText: "Enter Code",
+                                      hintStyle: const TextStyle(
+                                        color: Color(0xffd0d0d0),
+                                      ),
 
 
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide:  BorderSide(
+                                      focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              10),
+                                          borderSide: BorderSide(
+                                              width: 1.0,
+                                              color: Colors.black
+                                          )
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              10),
+                                          borderSide: BorderSide(
                                             width: 1.0,
-                                            color: Colors.black
-                                        )
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide:  BorderSide(
-                                          width: 1.0,
-                                          color: Colors.black,
-                                        )
-                                    )
-                                ),
+                                            color: Colors.black,
+                                          )
+                                      )
+                                  ),
                                   onSubmitted: (String value) {
                                     print(value);
                                   },
@@ -91,9 +95,10 @@ class _HomeSliderState extends State<HomeSlider> {
                             Padding(
                               padding: const EdgeInsets.only(left: 5.0),
                               child: GestureDetector(
-                                onTap: ()
-                                {
-                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const CourseDetails()));
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                      builder: (
+                                          BuildContext context) => const CourseDetails()));
                                 },
                                 child: Container(
                                     height: 50,
@@ -118,72 +123,104 @@ class _HomeSliderState extends State<HomeSlider> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextWidget(text: 'Top Categories', color: black, fontsize: subTitleText),
+                  TextWidget(text: 'Top Categories',
+                      color: black,
+                      fontsize: subTitleText),
 
 
                   TextButton(
-                      onPressed: ()
-                      {
-                        Navigator.push(context, MaterialPageRoute (
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
                           builder: (BuildContext context) => const Categories(),
                         ));
                       },
                       child: Row(
                         children: [
-                          TextWidButt(text: 'See all', color: orange, fontsize: paragraphFont)
+                          TextWidButt(text: 'See all',
+                              color: orange,
+                              fontsize: paragraphFont)
 
                         ],
                       ))
                 ],
               ),
-              Container(
-                height: 140,
-                child: ListView.separated(
-                  separatorBuilder: (BuildContext context, int index) =>
-                  const SizedBox(
-                    width: 30,
+              Consumer(builder: (BuildContext context, cate, Widget? child) {
+                bool get = false;
+                var getviewcategot;
+                if(get){
+                  getviewcategot = cate(apigetCateg);
+                }else{
+                  getviewcategot = cate(apigetCateg)..getdatacategors();
+                  get = true;
+                }
+
+                return Container(
+                  height: 140,
+                  child: ListView.separated(
+                    separatorBuilder: (BuildContext context, int index) =>
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    itemBuilder: (BuildContext context, int index) =>
+                        CateCard(catImages: getviewcategot
+                            .listDataModel[index].image_url
+
+
+                            , catNames: getviewcategot
+                                .listDataModel[index].category_name),
+                    itemCount: getviewcategot.listDataModel.length,
+                    scrollDirection: Axis.horizontal,
                   ),
-                  itemBuilder: (BuildContext context, int index) => CateCard(catImages:catImages[index] ,catNames: catNames[index]),
-                  itemCount: catImages.length,
-                  scrollDirection: Axis.horizontal,
-                ),
-              ),
+                );
+              },),
               const SizedBox(
                 height: 10.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextWidget(text: 'New Courses', color: black, fontsize: subTitleText),
+                  TextWidget(text: 'New Courses',
+                      color: black,
+                      fontsize: subTitleText),
 
                   TextButton(
-                      onPressed: ()
-                      {
-                        Navigator.push(context, MaterialPageRoute (
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
                           builder: (BuildContext context) => const NewCourses(),
                         ));
                       },
-                      child: TextWidButt(text: 'See all', color: orange, fontsize: paragraphFont)
+                      child: TextWidButt(text: 'See all',
+                          color: orange,
+                          fontsize: paragraphFont)
                   )
                 ],
               ),
               SizedBox(
                 height: 400,
                 child: ListView.separated(
-                  itemBuilder: (BuildContext context, int index) => GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute (
-                        builder: (BuildContext context) => const CourseDetails(),
-                      ));
-                    },
-                    child: CourseCard(courseImages: courseImages[index], courseNames: courseNames[index
-                    ]),
-                  ),
+                  itemBuilder: (BuildContext context, int index) =>
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (
+                                BuildContext context) => const CourseDetails(),
+                          ));
+                        },
+                        child: CourseCard(courseImages: courseImages[index],
+                            courseNames: courseNames[index
+                            ]),
+                      ),
                   itemCount: courseNames.length,
                   separatorBuilder: (BuildContext context, int index) =>
-                      const SizedBox(
-                        width: 5,
-                      ),
+                  const SizedBox(
+                      width: 5,
+                      // Image.network(
+                      //   image_url +
+                      //       getviewcategot
+                      //           .listDataModel[index].image_url,
+                      //   color: colorTxetOrange,
+                      // )
+                  ),
                   scrollDirection: Axis.horizontal,
                 ),
               )

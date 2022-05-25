@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hackathonapp/view/widgets/BackIcon.dart';
-import 'package:hackathonapp/view/widgets/CoursesList.dart';
+import 'package:hackathonapp/view/widgets/WidgetNavHome/BackIcon.dart';
+import 'package:hackathonapp/view/widgets/WidgetNavHome/CoursesList.dart';
 
 import '../../../Constant.dart';
 import '../../widgets/TextWidget.dart';

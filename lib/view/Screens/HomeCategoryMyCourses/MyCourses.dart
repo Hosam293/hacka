@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackathonapp/view/Screens/CourseDetails/CourseDetails.dart';
-import 'package:hackathonapp/view/widgets/CoursesList.dart';
+import 'package:hackathonapp/view/widgets/WidgetNavHome/CoursesList.dart';
 import 'package:hackathonapp/view/widgets/TextWidget.dart';
 
 import '../../../Constant.dart';

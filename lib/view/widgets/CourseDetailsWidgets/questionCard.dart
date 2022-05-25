@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hackathonapp/view/widgets/TextWidget.dart';
 
-import '../../Constant.dart';
-import '../../model/Question.dart';
-import '../../services/ExamModel.dart';
+import '../../../Constant.dart';
+import '../../../model/Question.dart';
+import '../../../services/ExamModel.dart';
+
 
 class QuestionCard extends StatelessWidget {
   const QuestionCard({

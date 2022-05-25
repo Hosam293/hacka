@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackathonapp/view/Screens/SplashOnboardingSignUpLog%20in/ForgetPassScreen.dart';
 
 import '../../../Constant.dart';
 import '../../../services/onBoardLoginAndSignupServices/FetchLogin.dart';
@@ -99,12 +100,12 @@ class _FormLoginState extends State<FormLogin> {
                   decoration: TextDecoration.underline,
                 ),
               ),
-              // onTap: () {
-              //   Navigator.of(context).push(
-              //     MaterialPageRoute(
-              //         builder: (context) => const Info()),
-              //   );
-              // },
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (context) =>  ForgetPassScreen()),
+                );
+              },
             ),
           ),
           const SizedBox(
